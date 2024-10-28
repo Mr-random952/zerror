@@ -1,8 +1,6 @@
 import asyncio as asy 
 import dis 
 import inspect 
-import pyperfmon #type: ignore {is downloded aldready}
-
 def check_infinite_loops(script ): 
     functions = inspect.getmembers(script, inspect.isfunction)
     for name , function in functions :
@@ -31,15 +29,7 @@ async def check_function_periodically(action, function_after_completion):
         else:
             await asy.sleep(15)
 
-# im bouta get carpal tunnel syndrome for real dude 
-
-async def check_performence(func) : 
-    pyperfmon.start()
-    await func()
-    pyperfmon.stop()
-    print(pyperfmon.get_stats())
-
-#VEN NO TOMA TOMA
+# im bouta get carpal tunnel syndrome for real dude
 
 def call_error(Error_type : Exception , statement : str) -> None: 
     raise Error_type(statement)
